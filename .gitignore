@@ -1,3 +1,5 @@
-images
+pages/images/*
+!pages/images/logos/
+!pages/images/logos/**
 scripts
 *.php
