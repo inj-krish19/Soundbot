@@ -1,5 +1,6 @@
 pages/images/*
 !pages/images/logos/
 !pages/images/logos/**
+!pages/images/users/
 scripts
 *.php
