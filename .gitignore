@@ -1,2 +1,6 @@
-scripts
-*.php
+pages/*.php
+pages/**/*.php
+!pages/scripts/connection/connection.php
+pages/scripts/connection/*
+!pages/scripts/connection/connection.php
+
