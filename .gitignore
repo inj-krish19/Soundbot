@@ -4,4 +4,5 @@ pages/**/*.php
 pages/scripts/connection/*
 !pages/scripts/connection/connection.php
 !pages/scripts/connection/connection-pdo.php
+!pages/scripts/connection/database-creation-script.php
 
