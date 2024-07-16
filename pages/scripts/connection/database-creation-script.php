@@ -8,6 +8,7 @@
     
     mysqli_select_db($conn,$databaseName);
 
+    
     $query = "create table if not exists users( 
         uhid int 
         auto_increment,
