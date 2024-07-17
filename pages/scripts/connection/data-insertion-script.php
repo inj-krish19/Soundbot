@@ -3,8 +3,6 @@
 
     require_once("connection.php");
 
-
-
     $query = 
 
         "insert into products (productid, pname, pdescription, pprice, pcategory, pquant, ptype, prgb, pwareadd, pwarecont) VALUES
