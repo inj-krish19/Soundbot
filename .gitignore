@@ -1,2 +1,3 @@
 pages/*.php
 !pages/home.php
+!pages/aboutus.php
