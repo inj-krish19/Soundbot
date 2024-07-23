@@ -2,3 +2,4 @@ pages/*.php
 !pages/home.php
 !pages/aboutus.php
 !pages/contactus.php
+!pages/feedback.php
