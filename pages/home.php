@@ -1,5 +1,4 @@
 <link rel="icon" type="image/x-icon" href="./images/logos/home.png">
-
 <?php
 
     session_start();
