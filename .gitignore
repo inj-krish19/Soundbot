@@ -4,3 +4,4 @@ pages/*.php
 !pages/contactus.php
 !pages/feedback.php
 !pages/login.php
+!pages/signup.php
