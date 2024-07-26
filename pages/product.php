@@ -235,18 +235,6 @@
     }
 
     echo "</div>";  
-    
-    echo "<div class=container>";
-
-    if( $last >= 0 ){
-        echo "<a class=slide href=product.php?page=". $last ." > < </a> ";
-    }
-
-    if($next < ceil(120/16) ){
-        echo "<a class=slide href=product.php?page=". $next ." > > </a>";
-    }
-
-    echo "</div>";  
 
 }
 
