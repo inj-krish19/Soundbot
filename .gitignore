@@ -5,3 +5,4 @@ pages/*.php
 !pages/feedback.php
 !pages/login.php
 !pages/signup.php
+!pages/product.php
