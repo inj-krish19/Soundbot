@@ -1,5 +1,4 @@
 <link rel="icon" type="image/x-icon" href="./images/logos/wishlist.png">
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
