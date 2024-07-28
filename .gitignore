@@ -6,4 +6,5 @@ pages/*.php
 !pages/login.php
 !pages/signup.php
 !pages/product.php
+!pages/productdetail.php
 !pages/addincart.php
