@@ -1,10 +1,2 @@
-pages/*.php
-!pages/home.php
-!pages/aboutus.php
-!pages/contactus.php
-!pages/feedback.php
-!pages/login.php
-!pages/signup.php
-!pages/product.php
-!pages/productdetail.php
-!pages/addincart.php
+pages/userprofile.php
+pages/bill.php
