@@ -217,11 +217,11 @@
 
         $last = $page - 1;
         $next = $page + 1;
-        
+
         echo "<div class=container>";
-        
+
         while ( $record = $result->fetch(PDO::FETCH_ASSOC)  ){
-        
+
         echo "
             <div class=card> 
                 <img src= ". $record["imageurl"] ." > 
@@ -232,6 +232,18 @@
                 <button onclick=window.location.href='productdetail.php?category=". $record["pcategory"] ."&id=". $record["productid"] ."' >View Product</button>
                 <button onclick=window.location.href='addincart.php?category=". $record["pcategory"] ."&id=". $record["productid"] ."' >Add To Cart</button>
             </div>";
+    }
+
+    echo "</div>";  
+
+    echo "<div class=container>";
+
+    if( $last >= 0 ){
+        echo "<a class=slide href=product.php?page=". $last ." > < </a> ";
+    }
+
+    if($next < ceil(120/16) ){
+        echo "<a class=slide href=product.php?page=". $next ." > > </a>";
     }
 
     echo "</div>";  
