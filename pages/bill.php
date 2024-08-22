@@ -164,6 +164,10 @@
 
             $record = $result->fetch_assoc();
 
+            if( $record == false ){
+                exit;
+            }
+
             $uid = $record["uhid"];
 
             $query = "select phid from products where productid = '".  $_REQUEST["id"] ."' ";
