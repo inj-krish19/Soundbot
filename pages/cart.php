@@ -191,7 +191,7 @@
         ";
 
         $result = $connection->query($query);
-
+        
         $record = $result->fetch(PDO::FETCH_ASSOC);
 
         $uid = $record["uhid"];
@@ -206,7 +206,8 @@
 
         $result = $connection->query($query);
 
-        
+        $notFound = true;
+
         while ( $record = $result->fetch(PDO::FETCH_ASSOC)  ){
             
             echo "
@@ -216,8 +217,15 @@
                 <h3> ". $record["pprice"] ." </h3>
                 <h4> ". $record["pcategory"] ." </h4>
                 <h5> ". $record["pdescription"] ." </h5>
-                
+                <button onclick=window.location.href='bill.php?id=". $record["productid"] ."'> Bill </h5>
             </div>";
+
+            $notFound = false;
+
+        }
+
+        if( $notFound ){
+            echo "<h1> Your Cart Is Empty </h1>";
         }
 
         echo "</div>";  

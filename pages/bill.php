@@ -155,10 +155,26 @@
             if( isset($_REQUEST["id"]) ){
                 $this->id = $_REQUEST["id"];
             }
-
+            
             $conn = new mysqli("localhost","root","","soundbot");
 
-            $query = "select pname,pprice,pquant from products where productid='". $this->id ."'";
+            $query = "select uhid from users where userid = '".  $_SESSION["user"] ."' ";
+
+            $result = $conn->query($query);
+
+            $record = $result->fetch_assoc();
+
+            $uid = $record["uhid"];
+
+            $query = "select phid from products where productid = '".  $_REQUEST["id"] ."' ";
+
+            $result = $conn->query($query);
+
+            $record = $result->fetch_assoc();
+
+            $pid = $record["phid"];
+
+            $query = "select P.pname,P.pprice,P.pquant from products P inner join Cart C on P.phid = C.productid where C.productid=". $pid ." and userid = ". $uid ." ";
 
             $result = $conn->query($query);
 

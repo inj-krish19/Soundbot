@@ -8,12 +8,12 @@
     if( !isset($_SESSION["user"]) ){
         $_SESSION["user"] = "guest";
     }
-    
+
     if( 
         $_SESSION["user"] == "guest"    &&
         isset( $_REQUEST["id"] )
     ){
-        
+
         $query = "select pname from products where productid = '". $_REQUEST["id"] ."' ";
 
         $result = mysqli_query($conn,$query);
@@ -21,11 +21,11 @@
         $record = mysqli_fetch_assoc($result);
 
         $title = $record["pname"];
-    
+
     }else{
         $title = "Product Details";
     }
-    
+
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,9 +34,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> <?php echo $title; ?> </title>
 </head>
-        
+
 <style>
-    
+
     body{
         margin : 0px;
         background : #4a0053;
@@ -75,18 +75,18 @@
         border-radius : 5%;
         border : 3px solid #7d055a;
     }
-    
+
     li:hover{
         border-bottom : 3px solid #252525;
     }
-    
+
     li > a > img{
         margin : 0px;
         align : center;
         height : 50px;
         width : 50px;
     }
-    
+
 
     a{
         color : #7d055a;
@@ -103,14 +103,14 @@
         color : white;
         color: lightblue;
     }
-    
+
     p{
         margin-left : 1%;
         margin-right : 1%;
         text-align:left;
         font-size : 1.5rem;
     }
-    
+
     h1{
         text-align : center;
         font-size : 2.5rem;
@@ -158,7 +158,7 @@
         width : auto;
         /* mix-blend-mode : multiply; */
     }
-    
+
     .content{
         margin : 1%;
         width : 50%;
@@ -219,7 +219,7 @@
             if( $_SESSION["user"] == "guest" ){
                 echo "<li><a href=signup.php><img src=./images/users/default-user-pfp.jpg ></a></li>";
             }else{
-                
+
                 include_once("scripts/connection/connection.php");
 
                 $query = "select imageurl from images where uspid = '". $_SESSION["user"] ."' ";
@@ -292,36 +292,49 @@
     ?>
 
         <div class="content">
-            <h1> <?php echo $title;  ?> </h1>
-            <h2> <?php echo "₹ " . $price;  ?> </h2>
-            <h2> <?php echo $description;  ?> </h2>
-            <h4> <?php echo $type;  ?> </h4>
-            <h4> <?php echo $color;  ?> </h4>
-            <h4> <?php echo $rgb;  ?> </h4>
-            <h4> <?php echo $category;  ?> </h4>
-            
+            <h1><?php echo htmlspecialchars($title); ?></h1>
+            <h2><?php echo "₹ " . htmlspecialchars($price); ?></h2>
+            <h2><?php echo htmlspecialchars($description); ?></h2>
+            <h4><?php echo htmlspecialchars($type); ?></h4>
+            <h4><?php echo htmlspecialchars($color); ?></h4>
+            <h4><?php echo htmlspecialchars($rgb); ?></h4>
+            <h4><?php echo htmlspecialchars($category); ?></h4>
+
             <form method="post">
-            
                 <h2>
-                    <label for="quantity">Quantity : </label>
-                    <button class="left" onclick="if( document.getElementsByName('quantity')[0].value > 1 ){  document.getElementsByName('quantity')[0].value--; }else{ document.getElementsByName('quantity')[0].value = 1; } ;" > - </button>
-                    <input type="number" name="quantity" value=<?php echo $quantity ?>>
-                    <button onclick="if( parseInt(document.getElementsByName('quantity')[0].value) + 1 < parseInt(localStorage.quantity) && parseInt(document.getElementsByName('quantity')[0].value) + 1 < 100 && parseInt(document.getElementsByName('quantity')[0].value) >= 1 ){ document.getElementsByName('quantity')[0].value++; }else{ document.getElementsByName('quantity')[0].value = 1; }" > + </button>
+                    <label for="quantity">Quantity: </label>
+                    <button class="left" type="button" onclick="
+                        if( parseInt(document.getElementsByName('quantity')[0].value) > 1 && parseInt(document.getElementsByName('quantity')[0].value) < 100 ) {  
+                            document.getElementsByName('quantity')[0].value--; 
+                        } else { 
+                            document.getElementsByName('quantity')[0].value = 99; 
+                        }
+                    "> - </button>
+
+                    <input type="number" name="quantity" value="<?php echo htmlspecialchars($quantity); ?>">
+
+                    <button type="button" onclick="
+                        if( parseInt(document.getElementsByName('quantity')[0].value) + 1 <= Math.min(parseInt(localStorage.quantity), 99) && parseInt(document.getElementsByName('quantity')[0].value) >= 1) { 
+                            document.getElementsByName('quantity')[0].value++; 
+                        } else if( parseInt(document.getElementsByName('quantity')[0].value) >= Math.min(parseInt(localStorage.quantity), 99)) { 
+                            document.getElementsByName('quantity')[0].value = Math.min(parseInt(localStorage.quantity), 99); 
+                        }else{
+                            document.getElementsByName('quantity')[0].value = 1; 
+                        }
+                    "> + </button>
                 </h2>
 
                 <h2>
-                    <label for="payment">Payment Method : </label>
+                    <label for="payment">Payment Method: </label>
                     <select name="payment" id="payment">
-                        <option name="payment">Select Payment Method</option>
-                        <option name="payment">Cash</option>
-                        <option name="payment">Net Banking</option>
+                        <option value="">Select Payment Method</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Net banking">Net Banking</option>
                     </select>
                 </h2>
+            </form>
 
-           </form>
-
-            <button onclick=window.location.href='addincart.php?category=<?php echo $_REQUEST["category"] . "&id=" . $_REQUEST["id"]; ?>' >Add To Cart</button>
-
+            <button onclick="window.location.href='addincart.php?category=<?php echo urlencode($_REQUEST["category"]) . "&id=" . urlencode($_REQUEST["id"]); ?>'">Add To Cart</button>
         </div>
 
     </div>

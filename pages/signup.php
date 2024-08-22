@@ -223,7 +223,7 @@
             if( $record['userid'] != NULL){
                 $uid = $record['userid'];
             }else{
-                $uid = "USR000000";
+                $uid = "USR000001";
             }
             
             $result = mysqli_query($conn,$query);

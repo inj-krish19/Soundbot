@@ -231,3 +231,13 @@
     </div>
 </body>
 </html>
+
+<!-- 
+
+Note : If Captcha Is Not Showing In Login Page
+Then Go To php.ini and 
+remove semicolon (;) from 
+
+;extension:gd => extension:gd
+
+-->
