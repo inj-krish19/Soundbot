@@ -327,17 +327,32 @@
                 <h2>
                     <label for="payment">Payment Method: </label>
                     <select name="payment" id="payment">
-                        <option value="">Select Payment Method</option>
                         <option value="Cash">Cash</option>
                         <option value="Net banking">Net Banking</option>
                     </select>
                 </h2>
+                <button type="submit" name="cart" >Add To Cart</button>
             </form>
 
-            <button onclick="window.location.href='addincart.php?category=<?php echo urlencode($_REQUEST["category"]) . "&id=" . urlencode($_REQUEST["id"]); ?>'">Add To Cart</button>
         </div>
 
     </div>
 </body>
+
+<?php
+
+        if(
+            isset($_SESSION["user"])    &&    
+            isset($_POST["quantity"])   &&    
+            isset($_POST["payment"])    &&
+            isset($_POST["cart"])    
+        ){
+
+            echo "<script> window.location.href='addincart.php?category=". $record["pcategory"] ."&id=". $_REQUEST["id"] ."&quant=".$_POST["quantity"]."&paymet=".$_POST["payment"]." '; </script>";
+
+        }
+
+
+?>
 
 </html>

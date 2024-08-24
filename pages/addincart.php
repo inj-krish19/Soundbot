@@ -120,7 +120,9 @@
     
     if(
         isset( $_REQUEST["category"] ) &&
-        isset( $_REQUEST["id"] ) 
+        isset( $_REQUEST["id"] )    &&
+        isset( $_REQUEST["quant"] )    &&
+        isset( $_REQUEST["paymet"] ) 
     ){
 
         try{    
@@ -152,8 +154,8 @@
             
             $uid = (int)$record["id"];
 
-            $query = " insert into cart(userid,productid)
-                values(". $uid .",". $pid .")";
+            $query = " insert into cart(userid,productid,quant,orderstatus,paystatus,paymethod)
+                values(". $uid .",". $pid .",". (int)$_REQUEST["quant"] .",'Cart','Pending','". $_REQUEST["paymet"] ."')";
 
             $connection->query($query);
 

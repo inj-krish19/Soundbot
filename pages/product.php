@@ -230,7 +230,7 @@
                 <h4> ". $record["pcategory"] ." </h4>
                 <h5> ". $record["pdescription"] ." </h5>
                 <button onclick=window.location.href='productdetail.php?category=". $record["pcategory"] ."&id=". $record["productid"] ."' >View Product</button>
-                <button onclick=window.location.href='addincart.php?category=". $record["pcategory"] ."&id=". $record["productid"] ."' >Add To Cart</button>
+                <button onclick=window.location.href='addincart.php?category=". $record["pcategory"] ."&id=". $record["productid"] ."&quant=1&paymet=cash' >Add To Cart</button>
             </div>";
     }
 

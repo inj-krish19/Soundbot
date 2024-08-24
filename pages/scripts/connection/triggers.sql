@@ -79,6 +79,7 @@ create trigger update_cart_status_insert
 before insert on cart 
 for each row  
 begin
+
 	
     set paystatus = "Pending";
     
@@ -117,6 +118,30 @@ begin
     set paystatus = "Pending";
     
     set paystatus = "Done";
+
+end;//
+delimiter ;
+
+delimiter //
+create trigger calculate_amount
+after update on cart 
+for each row  
+begin
+
+    set amount = quant * price;
+
+end;//
+delimiter ;
+
+drop trigger calculate_amount;
+
+delimiter //
+create trigger calculate_amount
+before insert on cart 
+for each row  
+begin
+
+    set new.amount = new.quant * new.price;
 
 end;//
 delimiter ;
