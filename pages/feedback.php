@@ -145,6 +145,16 @@
         height: 40px;
     }
 
+    .response{
+        display : none;
+        height : 50px;
+        width : 250px;
+        background : white;
+        margin : 0 50px 0 auto;
+        border-radius : 15px;
+        transition : auto;
+    }
+
 </style>
 
 <body>
@@ -193,6 +203,10 @@
             $email = $record["uemail"];
     
     ?>
+
+    <div class="response">
+        <p class="message"></p>
+    </div>
 
     <div class="Wrapper">
 
@@ -248,10 +262,26 @@
 
             $uid = (int)$record["uhid"];
 
-            $query = "insert into feedback 
+            $query = "insert into feedback(userid,feed_date,description)
             values( ". $uid ." ,'". $dayOfFeedback ."','". $_POST["feeddesc"] ."') ";
 
             $result = $conn->query($query);
+
+            if( $result ){
+
+                echo "
+                <script> 
+                    const message = document.querySelector('.message');  
+                    const response = document.querySelector('.response');  
+                    message.innerHTML = 'Response Submitted Successfully';
+                    response.style.display = 'block';   
+                    setTimeout( () => {
+                        response.style.display = 'none'; 
+                    } , 5000 );
+
+                </script>";
+
+            }
 
         }
 

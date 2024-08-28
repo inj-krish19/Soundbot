@@ -1,6 +1,3 @@
-/*	This Triggers Will Not Run On 
-PHPMYADMIN So run it manually	*/
-
 /*	Run It Manually		*/
 
 use Soundbot;
