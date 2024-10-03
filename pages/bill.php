@@ -118,6 +118,7 @@
         <li><a href="contactus.php" >Contact Us</a></li>
         <li><a href="feedback.php" >Feedback</a></li>
         <li><a href="product.php?page=0" >Product</a></li>
+        <li><a href="cart.php" ><img src=./images/logos/cart.png ></a></li>
         <?php
 
             if( $_SESSION["user"] == "guest" ){
@@ -164,6 +165,10 @@
 
             $record = $result->fetch_assoc();
 
+            if( $record == false ){
+                exit;
+            }
+
             $uid = $record["uhid"];
 
             $query = "select phid from products where productid = '".  $_REQUEST["id"] ."' ";
@@ -174,14 +179,14 @@
 
             $pid = $record["phid"];
 
-            $query = "select P.pname,P.pprice,P.pquant from products P inner join Cart C on P.phid = C.productid where C.productid=". $pid ." and userid = ". $uid ." ";
+            $query = "select P.pname,P.pprice,C.quant from products P inner join Cart C on P.phid = C.productid where C.productid=". $pid ." and userid = ". $uid ." ";
 
             $result = $conn->query($query);
 
             $record = $result->fetch_assoc();
 
             $this->name = $record["pname"];
-            $this->quan = (float)$record["pquant"];
+            $this->quan = (float)$record["quant"];
             $this->price = (float)$record["pprice"];
 
             $this->calculateAmount();
