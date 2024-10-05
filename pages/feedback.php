@@ -152,7 +152,8 @@
         background : white;
         margin : 0 50px 0 auto;
         border-radius : 15px;
-        transition : auto;
+        transition : 0.5s;
+        opacity: 1;
     }
 
 </style>
@@ -271,12 +272,14 @@
 
                 echo "
                 <script> 
+
                     const message = document.querySelector('.message');  
                     const response = document.querySelector('.response');  
                     message.innerHTML = 'Response Submitted Successfully';
                     response.style.display = 'block';   
                     setTimeout( () => {
-                        response.style.display = 'none'; 
+                        response.style.display = 'none';
+                        response.style.opacity = 0; 
                     } , 5000 );
 
                 </script>";
