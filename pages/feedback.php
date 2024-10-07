@@ -148,7 +148,7 @@
     .response{
         display : none;
         height : 50px;
-        width : 250px;
+        width : 350px;
         background : white;
         margin : 0 50px 0 auto;
         border-radius : 15px;
