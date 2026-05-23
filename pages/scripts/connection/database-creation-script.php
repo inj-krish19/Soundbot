@@ -9,7 +9,7 @@
     mysqli_select_db($conn,$databaseName);
 
     
-    $query = "create table if not exists users( 
+    $query = "create table if not exists sb_users( 
         uhid int 
         auto_increment,
         userid varchar(9),
@@ -36,7 +36,7 @@
         
     $result = mysqli_query($conn,$query);
 
-    $query = "create table if not exists products( 
+    $query = "create table if not exists sb_products( 
         phid int 
         auto_increment,
         productid varchar(9)
@@ -61,7 +61,7 @@
         
     $result = mysqli_query($conn,$query);
     
-    $query = "create table if not exists cart( 
+    $query = "create table if not exists sb_cart( 
 
         userid int,
         productid int,
@@ -89,7 +89,7 @@
 
     // usp id works as foreign key
 
-    $query = "create table if not exists images(
+    $query = "create table if not exists sb_images(
         
         ihid int
         auto_increment,
@@ -112,7 +112,7 @@
 
     $result = mysqli_query($conn,$query);
     
-    $query = "create table if not exists deletedusers( 
+    $query = "create table if not exists sb_deletedusers( 
         duhid int 
         auto_increment,
         duserid varchar(9),
@@ -137,7 +137,7 @@
         
     $result = mysqli_query($conn,$query);
 
-    $query = "create table if not exists deletedproduts( 
+    $query = "create table if not exists sb_deletedproduts( 
         dphid int 
         auto_increment,
         dproductid varchar(9),
@@ -162,7 +162,7 @@
         
     $result = mysqli_query($conn,$query);
 
-    $query = "create table if not exists feedback( 
+    $query = "create table if not exists sb_feedback( 
         
         userid int
         primary key,
@@ -176,7 +176,7 @@
         
     $result = mysqli_query($conn,$query);
   
-    $query = "create table if not exists wishlist( 
+    $query = "create table if not exists sb_wishlist( 
 
         userid int,
         productid int,
@@ -192,7 +192,7 @@
         
     $result = mysqli_query($conn,$query);
 
-    $query = "create table if not exists trackorder( 
+    $query = "create table if not exists sb_trackorder( 
 
         userid int,
         productid int,

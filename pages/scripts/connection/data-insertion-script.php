@@ -5,7 +5,7 @@
 
     $query = 
 
-        "insert into products (productid, pname, pdescription, pprice, pcategory, pquant, ptype, prgb, pwareadd, pwarecont) VALUES
+        "insert into sb_products (productid, pname, pdescription, pprice, pcategory, pquant, ptype, prgb, pwareadd, pwarecont) VALUES
     ('PRD000001', 'Aurora Sound', 'Experience the celestial melodies with Aurora Sound.', 899.99, 'Earphone', 735, 'Wired', 'No', '1234 Main Street, Anytown, Country', '1234567890'),
     ('PRD000002', 'Harmony Beat', 'Harmonize your soul with the rhythmic beats of Harmony Beat.', 799.99, 'Earphone', 271, 'Wired', 'No', '5678 Oak Avenue, Othertown, Country', '2345678901'),
     ('PRD000003', 'Sonic Rhythm', 'Feel the sonic rhythm with Sonic Rhythm earphones.', 649.99, 'Earphone', 187, 'Wired', 'No', '9101 Elm Drive, Another Town, Country', '3456789012'),
@@ -132,7 +132,7 @@
     mysqli_query($conn,$query);
     
     $query = 
-         "insert into images (imageid, uspid, imageurl, imageasp, imageheight , imagewidth , imagetype) values
+         "insert into sb_images (imageid, uspid, imageurl, imageasp, imageheight , imagewidth , imagetype) values
     ('IMG000001', 'PRD000001', 'images/products/earphones1.jpg', '16:9' , 1920 , 1080 , 'Product' ) ,
     ('IMG000002', 'PRD000002', 'images/products/earphones2.jpg', '16:9' , 1920 , 1080 , 'Product' ) ,
     ('IMG000003', 'PRD000003', 'images/products/earphones3.jpg', '16:9' , 1920 , 1080 , 'Product' ) ,
@@ -260,7 +260,7 @@
 
 
     /*$query =     
-        "insert into products (productid, product_name, product_description, price, category) values
+        "insert into sb_products (productid, product_name, product_description, price, category) values
     ('PRD000001', 'Aurora Sound', 'Experience the celestial melodies with Aurora Sound.', 899.99, 'Earphones'),    
     ('PRD000002', 'Harmony Beat', 'Harmonize your soul with the rhythmic beats of Harmony Beat.', 799.99, 'Earphones'),
     ('PRD000003', 'Sonic Rhythm', 'Feel the sonic rhythm with Sonic Rhythm earphones.', 649.99, 'Earphones'),
