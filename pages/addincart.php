@@ -127,7 +127,7 @@
 
         try{    
 
-            require_once("scripts/connection/connection-pdo.php");
+            require_once("scripts/connection/connection.php");
 
             $query = "use soundbot";
 

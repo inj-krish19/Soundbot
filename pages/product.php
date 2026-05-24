@@ -190,7 +190,7 @@
 <?php
 
 
-    require_once("scripts/connection/connection-pdo.php");
+    require_once("scripts/connection/connection.php");
 
     if( isset($_REQUEST["page"]) ){
 
