@@ -184,13 +184,13 @@
 
         $query = "use soundbot";
 
-        $result = $connection->query($query);
+        $result = $conn->query($query);
         
         $query = "
             select uhid from sb_users where userid = '". $_SESSION["user"] ."';
         ";
 
-        $result = $connection->query($query);
+        $result = $conn->query($query);
         
         $record = $result->fetch(PDO::FETCH_ASSOC);
 
@@ -204,7 +204,7 @@
             )
         ";
 
-        $result = $connection->query($query);
+        $result = $conn->query($query);
 
         $notFound = true;
 

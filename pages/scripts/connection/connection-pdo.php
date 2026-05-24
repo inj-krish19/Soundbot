@@ -8,7 +8,7 @@
 
     try {
 
-        $connection = new PDO(
+        $conn = new PDO(
             "mysql:host=" . $serverName . 
             ";dbname=" . $databaseName . 
             ";port=" . $portNumber,
@@ -17,7 +17,7 @@
         );
 
         // Set PDO error mode
-        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         echo "Database connected successfully";
 

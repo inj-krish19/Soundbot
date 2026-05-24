@@ -131,11 +131,11 @@
 
             $query = "use soundbot";
 
-            $connection->query($query);
+            $conn->query($query);
             
             $query = "select phid as 'id' from sb_products where productid='". $_REQUEST["id"] ."'";
 
-            $result = $connection->query($query);
+            $result = $conn->query($query);
             
             $record = $result->fetch(PDO::FETCH_ASSOC);
             
@@ -148,7 +148,7 @@
 
             $query = "select uhid as 'id' from sb_users where userid='". $_SESSION["user"] ."'";
 
-            $result = $connection->query($query);
+            $result = $conn->query($query);
 
             $record = $result->fetch(PDO::FETCH_ASSOC);
             
@@ -157,7 +157,7 @@
             $query = " insert into sb_cart(userid,productid,quant,orderstatus,paystatus,paymethod)
                 values(". $uid .",". $pid .",". (int)$_REQUEST["quant"] .",'Cart','Pending','". $_REQUEST["paymet"] ."')";
 
-            $connection->query($query);
+            $conn->query($query);
 
             header("Location:product.php?page=0");
 

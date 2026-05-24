@@ -202,7 +202,7 @@
 
         $query = "use soundbot";
 
-        $result = $connection->query($query);
+        $result = $conn->query($query);
 
         $query = "
         select P.productid,P.pname,P.pcategory,P.pdescription,P.pprice,I.imageurl
@@ -211,7 +211,7 @@
         limit ". ($page*16) .",16
                 ";
 
-        $result = $connection->query($query);
+        $result = $conn->query($query);
 
         $page = (int)$_REQUEST["page"];
 
