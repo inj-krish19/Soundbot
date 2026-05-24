@@ -135,7 +135,7 @@
 
             $result = $conn->query($query);
             
-            $record = $result->fetch(PDO::FETCH_ASSOC);
+            $record = $result->fetch_assoc();
             
 
             if( $_SESSION["user"] == "guest" ){
@@ -148,7 +148,7 @@
 
             $result = $conn->query($query);
 
-            $record = $result->fetch(PDO::FETCH_ASSOC);
+            $record = $result->fetch_assoc();
             
             $uid = (int)$record["id"];
 

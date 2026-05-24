@@ -216,7 +216,7 @@
 
         echo "<div class=container>";
 
-        while ( $record = $result->fetch(PDO::FETCH_ASSOC)  ){
+        while ( $record = $result->fetch_assoc()  ){
 
         echo "
             <div class=card> 
