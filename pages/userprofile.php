@@ -152,7 +152,7 @@
                 
                 include_once("scripts/connection/connection.php");
 
-                $query = "select imageurl from images where uspid = '". $_SESSION["user"] ."' ";
+                $query = "select imageurl from sb_images where uspid = '". $_SESSION["user"] ."' ";
 
                 $res = mysqli_query($conn,$query);
 
@@ -170,7 +170,7 @@
 
     require_once("scripts/connection/connection.php");
 
-    $query = "select * from users where userid='". $_SESSION["user"] ."' ";
+    $query = "select * from sb_users where userid='". $_SESSION["user"] ."' ";
 
     $rec = mysqli_query($conn,$query);
 
@@ -247,7 +247,7 @@
         isset( $_POST["delete"] )
     ){
 
-        // $query = "delete from users where userid = '". $_SESSION["user"]  ."'";
+        // $query = "delete from sb_users where userid = '". $_SESSION["user"]  ."'";
 
         // mysqli_query($conn,$query);
         

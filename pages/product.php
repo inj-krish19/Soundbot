@@ -172,7 +172,7 @@
                 
                 include_once("scripts/connection/connection.php");
 
-                $query = "select imageurl from images where uspid = '". $_SESSION["user"] ."' ";
+                $query = "select imageurl from sb_images where uspid = '". $_SESSION["user"] ."' ";
 
                 $result = mysqli_query($conn,$query);
 
@@ -206,7 +206,7 @@
 
         $query = "
         select P.productid,P.pname,P.pcategory,P.pdescription,P.pprice,I.imageurl
-        from products P inner join images I
+        from sb_products P inner join images I
         where P.productid = I.uspid
         limit ". ($page*16) .",16
                 ";

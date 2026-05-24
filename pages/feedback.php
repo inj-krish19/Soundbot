@@ -173,7 +173,7 @@
                 
                 include_once("scripts/connection/connection.php");
 
-                $query = "select imageurl from images where uspid = '". $_SESSION["user"] ."' ";
+                $query = "select imageurl from sb_images where uspid = '". $_SESSION["user"] ."' ";
 
                 $result = mysqli_query($conn,$query);
 
@@ -195,7 +195,7 @@
     
         if( isset($_SESSION["user"]) && $_SESSION["user"] != "guest" ){
     
-            $query = "select uemail from users where userid = '". $_SESSION["user"] ."' ";
+            $query = "select uemail from sb_users where userid = '". $_SESSION["user"] ."' ";
     
             $result = $conn->query($query);
     
@@ -255,7 +255,7 @@
             
             $conn->query($query);
             
-            $query = "select uhid from users where userid='". $_SESSION["user"] ."'";
+            $query = "select uhid from sb_users where userid='". $_SESSION["user"] ."'";
             
             $result = $conn->query($query);
 
@@ -263,7 +263,7 @@
 
             $uid = (int)$record["uhid"];
 
-            $query = "insert into feedback(userid,feed_date,description)
+            $query = "insert into sb_feedback(userid,feed_date,description)
             values( ". $uid ." ,'". $dayOfFeedback ."','". $_POST["feeddesc"] ."') ";
 
             $result = $conn->query($query);

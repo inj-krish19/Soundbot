@@ -208,13 +208,13 @@
 
             mysqli_select_db($conn,$databaseName);
             
-            $query = "insert into users(uemail,uname,upass,uchoice,ubdate,ugender,ucontact,upayment,uaddress) 
+            $query = "insert into sb_users(uemail,uname,upass,uchoice,ubdate,ugender,ucontact,upayment,uaddress) 
             values('". $email ."','". $name ."','". password_hash($pass,1) ."','". substr($choice,0,-1) ."','". $date ."', 
             '". $gender ."','". $contact ."','". $payment ."','". $add ."')";
 
             mysqli_query($conn,$query);
 
-            $query = "select userid from users where uhid = (select max(uhid) from users);";
+            $query = "select userid from sb_users where uhid = (select max(uhid) from sb_users);";
             
             $result = mysqli_query($conn,$query);
 
@@ -228,7 +228,7 @@
             
             $result = mysqli_query($conn,$query);
             
-            $query = "insert into images(uspid,imageurl,imageasp,imageheight,imagewidth,imagetype) 
+            $query = "insert into sb_images(uspid,imageurl,imageasp,imageheight,imagewidth,imagetype) 
             values('". $uid ."','images/users/user-". $uid .".jpg','16:9',1920,1080,'User')";
 
             if( ! empty( $_FILES["supfp"]["tmp_name"] ) ){

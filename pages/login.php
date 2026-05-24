@@ -85,7 +85,7 @@
             
             require_once("scripts/connection/connection.php");        
             
-            $query = "select userid,uname,upass,count(*) as 'count' from users where uemail='". $useremail ."' ";
+            $query = "select userid,uname,upass,count(*) as 'count' from sb_users where uemail='". $useremail ."' ";
             
             $result = mysqli_query($conn,$query);
             

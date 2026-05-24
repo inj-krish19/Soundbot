@@ -14,7 +14,7 @@
         isset( $_REQUEST["id"] )
     ){
 
-        $query = "select pname from products where productid = '". $_REQUEST["id"] ."' ";
+        $query = "select pname from sb_products where productid = '". $_REQUEST["id"] ."' ";
 
         $result = mysqli_query($conn,$query);
 
@@ -222,7 +222,7 @@
 
                 include_once("scripts/connection/connection.php");
 
-                $query = "select imageurl from images where uspid = '". $_SESSION["user"] ."' ";
+                $query = "select imageurl from sb_images where uspid = '". $_SESSION["user"] ."' ";
 
                 $result = mysqli_query($conn,$query);
 
@@ -241,7 +241,7 @@
             isset($_REQUEST["id"])
         ){
 
-            $query = "select I.imageurl from products P inner join images I on I.uspid = P.productid where productid = '". $_REQUEST["id"] ."' ";
+            $query = "select I.imageurl from sb_products P inner join images I on I.uspid = P.productid where productid = '". $_REQUEST["id"] ."' ";
 
             $result = mysqli_query($conn,$query);
 
@@ -262,7 +262,7 @@
         if( 
             isset($_REQUEST["id"])
         ){
-            $query = "select pname,pquant,pprice,ptype,prgb,pcolor,pcategory,pwareadd,pwarecont,pdescription from products where productid = '". $_REQUEST["id"] ."' ";
+            $query = "select pname,pquant,pprice,ptype,prgb,pcolor,pcategory,pwareadd,pwarecont,pdescription from sb_products where productid = '". $_REQUEST["id"] ."' ";
 
             $result = mysqli_query($conn,$query);
 
