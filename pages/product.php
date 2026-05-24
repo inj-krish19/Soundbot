@@ -200,10 +200,6 @@
             $page = 0;
         }
 
-        $query = "use soundbot";
-
-        $result = $conn->query($query);
-
         $query = "
         select P.productid,P.pname,P.pcategory,P.pdescription,P.pprice,I.imageurl
         from sb_products P inner join images I

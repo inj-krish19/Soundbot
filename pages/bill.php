@@ -157,7 +157,7 @@
                 $this->id = $_REQUEST["id"];
             }
             
-            $conn = new mysqli("localhost","root","","soundbot");
+            require_once("scripts/connection/connection.php");
 
             $query = "select uhid from sb_users where userid = '".  $_SESSION["user"] ."' ";
 

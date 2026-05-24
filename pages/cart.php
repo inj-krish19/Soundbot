@@ -181,10 +181,6 @@
         echo "<div class=container>";
 
         require_once("scripts/connection/connection.php");
-
-        $query = "use soundbot";
-
-        $result = $conn->query($query);
         
         $query = "
             select uhid from sb_users where userid = '". $_SESSION["user"] ."';

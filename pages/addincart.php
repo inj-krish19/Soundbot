@@ -129,8 +129,6 @@
 
             require_once("scripts/connection/connection.php");
 
-            $query = "use soundbot";
-
             $conn->query($query);
             
             $query = "select phid as 'id' from sb_products where productid='". $_REQUEST["id"] ."'";
