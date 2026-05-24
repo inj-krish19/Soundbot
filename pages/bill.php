@@ -127,7 +127,7 @@
                 
                 include_once("scripts/connection/connection.php");
 
-                $query = "select imageurl from images where uspid = '". $_SESSION["user"] ."' ";
+                $query = "select imageurl from sb_images where uspid = '". $_SESSION["user"] ."' ";
 
                 $result = mysqli_query($conn,$query);
 
@@ -159,7 +159,7 @@
             
             $conn = new mysqli("localhost","root","","soundbot");
 
-            $query = "select uhid from users where userid = '".  $_SESSION["user"] ."' ";
+            $query = "select uhid from sb_users where userid = '".  $_SESSION["user"] ."' ";
 
             $result = $conn->query($query);
 
@@ -171,7 +171,7 @@
 
             $uid = $record["uhid"];
 
-            $query = "select phid from products where productid = '".  $_REQUEST["id"] ."' ";
+            $query = "select phid from sb_products where productid = '".  $_REQUEST["id"] ."' ";
 
             $result = $conn->query($query);
 
@@ -179,7 +179,7 @@
 
             $pid = $record["phid"];
 
-            $query = "select P.pname,P.pprice,C.quant from products P inner join Cart C on P.phid = C.productid where C.productid=". $pid ." and userid = ". $uid ." ";
+            $query = "select P.pname,P.pprice,C.quant from sb_products P inner join Cart C on P.phid = C.productid where C.productid=". $pid ." and userid = ". $uid ." ";
 
             $result = $conn->query($query);
 

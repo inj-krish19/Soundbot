@@ -129,7 +129,7 @@
                     
                     include_once("scripts/connection/connection.php");
 
-                    $query = "select imageurl from images where uspid = '". $_SESSION["user"] ."' ";
+                    $query = "select imageurl from sb_images where uspid = '". $_SESSION["user"] ."' ";
 
                     $result = mysqli_query($conn,$query);
 

@@ -138,12 +138,12 @@
             <?php
 
                 if( $_SESSION["user"] == "guest" ){
-                    echo "<li><a href=signup.php><img src=./pages/images/users/default-user-pfp.jpg ></a></li>";
+                    echo "<li><a href=./pages/signup.php><img src=./pages/images/users/default-user-pfp.jpg ></a></li>";
                 }else{
                     
                     include_once("./pages/scripts/connection/connection.php");
 
-                    $query = "select imageurl from images where uspid = '". $_SESSION["user"] ."' ";
+                    $query = "select imageurl from sb_images where uspid = '". $_SESSION["user"] ."' ";
 
                     $result = mysqli_query($conn,$query);
 

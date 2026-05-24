@@ -80,8 +80,8 @@
         custadd text(250) ,
         
         primary key(userid,productid),
-        foreign key (userid) references users(uhid),
-        foreign key (productid) references products(phid)
+        foreign key (userid) references sb_users(uhid),
+        foreign key (productid) references sb_products(phid)
 
     ) ";
         
@@ -131,7 +131,7 @@
         duaddress text(250) not null,
 
         primary key(duhid,duserid),
-        foreign key (duhid) references users(uhid)
+        foreign key (duhid) references sb_users(uhid)
 
     ) ";
         
@@ -153,10 +153,10 @@
         
         dpwareadd text(250) not null,
         dpwarecont text(10) not null,
-        dpdescription text(250) default '',
+        dpdescription text(250) ,
 
         primary key(dphid,dproductid),
-        foreign key (dphid) references products(phid)
+        foreign key (dphid) references sb_products(phid)
 
     ) ";
         
@@ -166,11 +166,10 @@
         
         userid int
         primary key,
-        feed_date date
-        default curdate(),
+        feed_date date,
         description text(250) default '',
 
-        foreign key (userid) references users(uhid)
+        foreign key (userid) references sb_users(uhid)
 
     ) ";
         
@@ -185,8 +184,8 @@
         favsatatus enum('Starred','Not Starred') not null default 'Not Starred',
         
         primary key(userid,productid),
-        foreign key (userid) references users(uhid),
-        foreign key (productid) references products(phid)
+        foreign key (userid) references sb_users(uhid),
+        foreign key (productid) references sb_products(phid)
 
     ) ";
         
@@ -200,8 +199,8 @@
         orderstatus enum('Pending','Sended','Arriving','Reached') not null,
 
         primary key(userid,productid),
-        foreign key (userid) references users(uhid),
-        foreign key (productid) references products(phid)
+        foreign key (userid) references sb_users(uhid),
+        foreign key (productid) references sb_products(phid)
 
     ) ";
         
@@ -234,7 +233,7 @@
         for each row
         begin
             declare next_userid int;
-            select ifnull(max(cast(substring(userid, 4) as unsigned)), 0) + 1 into next_userid from users where userid like 'USR%';
+            select ifnull(max(cast(substring(userid, 4) as unsigned)), 0) + 1 into next_userid from sb_users where userid like 'USR%';
             set new.userid = concat('USR', lpad(next_userid, 6, '0'));
         end;
         //
@@ -255,7 +254,7 @@
             declare next_productid int;
 
             -- Finding the next available number
-            select ifnull(max(cast(substring(productid, 4) as unsigned)), 0) + 1 into next_productid from products where productid like 'PRD%';
+            select ifnull(max(cast(substring(productid, 4) as unsigned)), 0) + 1 into next_productid from sb_products where productid like 'PRD%';
 
             -- Formatting the next productid
             set new.productid = concat('PRD', lpad(next_productid, 6, '0'));
@@ -277,7 +276,7 @@
             declare next_imageid int;
 
             -- Finding the next available number
-            select ifnull(max(cast(substring(imageid, 4) as unsigned)), 0) + 1 into next_imageid from images where imageid like 'IMG%';
+            select ifnull(max(cast(substring(imageid, 4) as unsigned)), 0) + 1 into next_imageid from sb_images where imageid like 'IMG%';
 
             -- Formatting the next imageid
             set new.imageid = concat('IMG', lpad(next_imageid, 6, '0'));

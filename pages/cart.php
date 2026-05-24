@@ -161,7 +161,7 @@
                 
                 include_once("scripts/connection/connection.php");
 
-                $query = "select imageurl from images where uspid = '". $_SESSION["user"] ."' ";
+                $query = "select imageurl from sb_images where uspid = '". $_SESSION["user"] ."' ";
 
                 $result = mysqli_query($conn,$query);
 
@@ -187,7 +187,7 @@
         $result = $connection->query($query);
         
         $query = "
-            select uhid from users where userid = '". $_SESSION["user"] ."';
+            select uhid from sb_users where userid = '". $_SESSION["user"] ."';
         ";
 
         $result = $connection->query($query);
@@ -198,9 +198,9 @@
 
         $query = "
             select P.productid,P.pname,P.pcategory,P.pdescription,P.pprice,I.imageurl
-            from products P inner join images I
+            from sb_products P inner join images I
             where P.productid = I.uspid and P.phid in (
-                select A.productid from cart A where userid='". $uid ."'
+                select A.productid from sb_cart A where userid='". $uid ."'
             )
         ";
 

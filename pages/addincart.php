@@ -133,7 +133,7 @@
 
             $connection->query($query);
             
-            $query = "select phid as 'id' from products where productid='". $_REQUEST["id"] ."'";
+            $query = "select phid as 'id' from sb_products where productid='". $_REQUEST["id"] ."'";
 
             $result = $connection->query($query);
             
@@ -146,7 +146,7 @@
 
             $pid = (int)$record["id"];
 
-            $query = "select uhid as 'id' from users where userid='". $_SESSION["user"] ."'";
+            $query = "select uhid as 'id' from sb_users where userid='". $_SESSION["user"] ."'";
 
             $result = $connection->query($query);
 
@@ -154,7 +154,7 @@
             
             $uid = (int)$record["id"];
 
-            $query = " insert into cart(userid,productid,quant,orderstatus,paystatus,paymethod)
+            $query = " insert into sb_cart(userid,productid,quant,orderstatus,paystatus,paymethod)
                 values(". $uid .",". $pid .",". (int)$_REQUEST["quant"] .",'Cart','Pending','". $_REQUEST["paymet"] ."')";
 
             $connection->query($query);
