@@ -179,7 +179,7 @@
 
             $pid = $record["phid"];
 
-            $query = "select P.pname,P.pprice,C.quant from sb_products P inner join Cart C on P.phid = C.productid where C.productid=". $pid ." and userid = ". $uid ." ";
+            $query = "select P.pname,P.pprice,C.quant from sb_products P inner join sb_cart C on P.phid = C.productid where C.productid=". $pid ." and userid = ". $uid ." ";
 
             $result = $conn->query($query);
 

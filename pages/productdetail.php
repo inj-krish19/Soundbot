@@ -241,7 +241,7 @@
             isset($_REQUEST["id"])
         ){
 
-            $query = "select I.imageurl from sb_products P inner join images I on I.uspid = P.productid where productid = '". $_REQUEST["id"] ."' ";
+            $query = "select I.imageurl from sb_products P inner join sb_images I on I.uspid = P.productid where productid = '". $_REQUEST["id"] ."' ";
 
             $result = mysqli_query($conn,$query);
 

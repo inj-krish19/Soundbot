@@ -194,7 +194,7 @@
 
         $query = "
             select P.productid,P.pname,P.pcategory,P.pdescription,P.pprice,I.imageurl
-            from sb_products P inner join images I
+            from sb_products P inner join sb_images I
             where P.productid = I.uspid and P.phid in (
                 select A.productid from sb_cart A where userid='". $uid ."'
             )
